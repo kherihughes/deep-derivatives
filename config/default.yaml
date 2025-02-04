@@ -1,0 +1,64 @@
+# Default configuration for American Option Pricing
+
+environment:
+  # Market parameters
+  initial_price: 100.0
+  strike_price: 100.0
+  time_to_maturity: 1.0
+  risk_free_rate: 0.05
+  dividend_yield: 0.02
+  volatility: 0.2
+  
+  # Simulation parameters
+  num_time_steps: 50
+  num_paths: 1000
+  use_gbm: true  # Use GBM vs Heston
+  
+  # Heston model parameters (if use_gbm=false)
+  heston:
+    v0: 0.04
+    theta: 0.04
+    kappa: 2.0
+    sigma: 0.2
+    rho: -0.7
+
+agent:
+  # Network architecture
+  hidden_dims: [128, 128]
+  learning_rate: 0.001
+  
+  # Experience replay
+  buffer_size: 10000
+  batch_size: 32
+  
+  # Training parameters
+  gamma: 0.99
+  epsilon: 1.0
+  epsilon_decay: 0.995
+  epsilon_min: 0.01
+  target_update_freq: 100
+
+training:
+  num_episodes: 1000
+  eval_frequency: 100
+  save_frequency: 100
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+
+monte_carlo:
+  num_simulations: 10000
+  num_steps: 100
+  regression_order: 3
+  use_antithetic: true
+  use_control_variates: true
+
+parallel:
+  num_workers: 4
+  chunk_size: 1000
+  timeout: 3600
+
+visualization:
+  dpi: 300
+  figsize: [12, 8]
+  style: "seaborn"
+  save_format: "png" 

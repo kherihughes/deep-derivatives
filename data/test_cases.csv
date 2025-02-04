@@ -1,0 +1,5 @@
+s_0,t2,q,r,option_type,use_gbm,sigma,v_0,theta,rho,kappa
+100,1.0,0.02,0.05,American_Call,true,0.2,,,,,
+90,1.0,0.02,0.05,American_Put,true,0.2,,,,,
+110,1.0,0.02,0.05,American_Call,false,0.2,0.04,0.04,-0.7,2.0
+80,1.0,0.02,0.05,American_Put,false,0.2,0.04,0.04,-0.7,2.0 

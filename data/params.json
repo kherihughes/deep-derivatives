@@ -1,0 +1,8 @@
+{
+    "nsim": 10000,
+    "num_episodes_train": 3000,
+    "num_episodes_eval": 500,
+    "nstep": 365,
+    "t1": 0,
+    "strike": 100
+} 
